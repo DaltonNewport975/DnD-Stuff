@@ -23,6 +23,8 @@ namespace SpecialBoi
         public MainWindow()
         {
             InitializeComponent();
+
+            BackgroundGenerators.StartUp();
         }
     }
 }

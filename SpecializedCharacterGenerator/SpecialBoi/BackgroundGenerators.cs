@@ -9,10 +9,10 @@ namespace SpecialBoi
 {
     class BackgroundGenerators
     {
-        private Dictionary<string, string> Feats = new Dictionary<string, string>();
-        private Dictionary<string, string> Races = new Dictionary<string, string>();
-        private Dictionary<string, string> Classes = new Dictionary<string, string>();
-        private Dictionary<string, string> Backgrounds = new Dictionary<string, string>();
+        private static Dictionary<string, string> Feats = new Dictionary<string, string>();
+        private static Dictionary<string, string> Races = new Dictionary<string, string>();
+        private static Dictionary<string, string> Classes = new Dictionary<string, string>();
+        private static Dictionary<string, string> Backgrounds = new Dictionary<string, string>();
 
         public static void StartUp()
         {
@@ -20,6 +20,38 @@ namespace SpecialBoi
             string[] races = File.ReadAllLines("races.txt");
             string[] classes = File.ReadAllLines("classes.txt");
             string[] backgrounds = File.ReadAllLines("backgrounds.txt");
+
+            string tempKey;
+            string tempEntry;
+
+            foreach (string i in feats)
+            {
+                tempKey = i.Substring(0, i.IndexOf("|"));
+                tempEntry = i.Substring(i.IndexOf("|") + 1);
+
+                Feats.Add(tempKey, tempEntry);
+            }
+            foreach (string i in races)
+            {
+                tempKey = i.Substring(0, i.IndexOf(","));
+                tempEntry = i.Substring(i.IndexOf(",") + 1);
+
+                Races.Add(tempKey, tempEntry);
+            }
+            foreach (string i in classes)
+            {
+                tempKey = i.Substring(0, i.IndexOf(",") + 1);
+                tempEntry = i.Substring(i.IndexOf(",") + 1);
+
+                Classes.Add(tempKey, tempEntry);
+            }
+            foreach (string i in backgrounds)
+            {
+                tempKey = i.Substring(0, i.IndexOf(",") + 1);
+                tempEntry = i.Substring(i.IndexOf(",") + 1);
+
+                Backgrounds.Add(tempKey, tempEntry);
+            }
         }
     }
 }
