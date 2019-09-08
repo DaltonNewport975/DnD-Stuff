@@ -84,7 +84,41 @@ namespace SpecialBoi
 
         private void CBRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //string to be used for confirmations later
+            string t;
 
+            //book keeping
+            CBSubRace.Items.Clear();
+            clearStatTextBlock();
+            TBFeatExplanation.Text = null;
+            CBFeats.Items.Clear();
+
+            //fancy visability setting changes to only present relevant options
+            if (BackendGenerators.Races[Convert.ToString(CBRace.SelectedValue)] != "")
+            {
+                CBSubRace.Visibility = Visibility.Visible;
+                LBLSubRace.Visibility = Visibility.Visible;
+
+                string temp = "";
+                for (int i = 0; i < BackendGenerators.Races[Convert.ToString(CBRace.SelectedValue)].Length; i++)
+                {
+                    if (BackendGenerators.Races[Convert.ToString(CBRace.SelectedValue)][i] == '|')
+                    {
+                        CBSubRace.Items.Add(temp);
+                        temp = null;
+                    }
+                    else
+                    {
+                        temp += BackendGenerators.Races[Convert.ToString(CBRace.SelectedValue)][i];
+                    }
+                }
+                CBSubRace.Items.Add(temp);
+            }
+            else
+            {
+                CBSubRace.Visibility = Visibility.Hidden;
+                LBLSubRace.Visibility = Visibility.Hidden;
+            }
         }
 
         private void CBSubRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
