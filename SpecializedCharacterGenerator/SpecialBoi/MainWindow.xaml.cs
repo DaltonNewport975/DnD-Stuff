@@ -24,7 +24,22 @@ namespace SpecialBoi
         {
             InitializeComponent();
 
-            BackgroundGenerators.StartUp();
+            //intake all the info
+            BackendGenerators.StartUp();
+
+            //populate the combo boxes
+            foreach (string i in BackendGenerators.Races.Keys)
+            {
+                CBRace.Items.Add(i);
+            }
+            foreach (string i in BackendGenerators.Classes.Keys)
+            {
+                CBClass.Items.Add(i);
+            }
+            foreach (string i in BackendGenerators.Backgrounds.Keys)
+            {
+                CBBackground.Items.Add(i);
+            }
         }
 
         private void BTNRun_Click(object sender, RoutedEventArgs e)
@@ -40,6 +55,31 @@ namespace SpecialBoi
         private void CBClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+            CBSubClass.Items.Clear();
+            clearStatTextBlock();
+            TBFeatExplanation.Text = null;
+            CBFeats.Items.Clear();
+
+            LBLSubClass.Visibility = Visibility.Visible;
+            CBSubClass.Visibility = Visibility.Visible;
+
+            LBLSubClass.Content = BackendGenerators.getSubClassType(Convert.ToString(CBClass.SelectedValue));
+
+            string temp = "";
+            for (int i = 0; i < BackendGenerators.Classes[Convert.ToString(CBClass.SelectedValue)].Length; i++)
+            {
+                if (BackendGenerators.Classes[Convert.ToString(CBClass.SelectedValue)][i] == '|')
+                {
+                    CBSubClass.Items.Add(temp);
+                    temp = null;
+
+                }
+                else
+                {
+                    temp += BackendGenerators.Classes[Convert.ToString(CBClass.SelectedValue)][i];
+                }
+            }
+            CBSubClass.Items.Add(temp);
         }
 
         private void CBRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,6 +100,17 @@ namespace SpecialBoi
         private void CBFeats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        //method to clear out the stat output TextBlock after a selection starts being chanegd
+        private void clearStatTextBlock()
+        {
+            TBSTR.Text = "";
+            TBDEX.Text = "";
+            TBCON.Text = "";
+            TBINT.Text = "";
+            TBWIS.Text = "";
+            TBCHA.Text = "";
         }
     }
 }

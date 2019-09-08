@@ -7,12 +7,12 @@ using System.IO;
 
 namespace SpecialBoi
 {
-    class BackgroundGenerators
+    class BackendGenerators
     {
-        private static Dictionary<string, string> Feats = new Dictionary<string, string>();
-        private static Dictionary<string, string> Races = new Dictionary<string, string>();
-        private static Dictionary<string, string> Classes = new Dictionary<string, string>();
-        private static Dictionary<string, string> Backgrounds = new Dictionary<string, string>();
+        public static Dictionary<string, string> Feats = new Dictionary<string, string>();
+        public static Dictionary<string, string> Races = new Dictionary<string, string>();
+        public static Dictionary<string, string> Classes = new Dictionary<string, string>();
+        public static Dictionary<string, string> Backgrounds = new Dictionary<string, string>();
 
         public static void StartUp()
         {
@@ -48,18 +48,52 @@ namespace SpecialBoi
             }
             foreach (string i in classes)
             {
-                tempKey = i.Substring(0, i.IndexOf(",") + 1);
+                tempKey = i.Substring(0, i.IndexOf(","));
                 tempEntry = i.Substring(i.IndexOf(",") + 1);
 
                 Classes.Add(tempKey, tempEntry);
             }
             foreach (string i in backgrounds)
             {
-                tempKey = i.Substring(0, i.IndexOf(",") + 1);
+                tempKey = i.Substring(0, i.IndexOf(","));
                 tempEntry = i.Substring(i.IndexOf(",") + 1);
 
                 Backgrounds.Add(tempKey, tempEntry);
             }
+        }
+
+        public static string getSubClassType(string Class)
+        {
+            switch (Class)
+            {
+                case "Barbarian":
+                    return "Path of the";
+                case "Bard":
+                    return "College of";
+                case "Cleric":
+                    return "Domain of";
+                case "Druid":
+                    return "Circle of the";
+                case "Fighter":
+                    return "Archetype:";
+                case "Monk":
+                    return "Way of the";
+                case "Paladin":
+                    return "Oath of";
+                case "Ranger":
+                    return "Archetype:";
+                case "Rogue":
+                    return "Archetype:";
+                case "Sorcerer":
+                    return "Origin:";
+                case "Warlock":
+                    return "Patron:";
+                case "Wizard":
+                    return "School of";
+                default:
+                    return "Subclass:";
+            }
+
         }
     }
 }

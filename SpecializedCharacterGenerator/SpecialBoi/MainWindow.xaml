@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpecialBoi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid>
         <ComboBox Name="CBRace" HorizontalAlignment="Left" Margin="130,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CBRace_SelectionChanged"/>
         <ComboBox Name="CBSubRace" HorizontalAlignment="Left" Margin="130,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CBSubRace_SelectionChanged" Visibility="Hidden"/>
