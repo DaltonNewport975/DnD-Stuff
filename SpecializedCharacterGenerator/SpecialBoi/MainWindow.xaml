@@ -7,6 +7,53 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox Name="CBRace" HorizontalAlignment="Left" Margin="130,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CBRace_SelectionChanged"/>
+        <ComboBox Name="CBSubRace" HorizontalAlignment="Left" Margin="130,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CBSubRace_SelectionChanged" Visibility="Hidden"/>
+        <ComboBox Name="CBClass" HorizontalAlignment="Left" Margin="130,120,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CBClass_SelectionChanged" Visibility="Visible"/>
+        <ComboBox Name="CBBackground" HorizontalAlignment="Left" Margin="130, 190, 0, 0" VerticalAlignment="Top" Width="120" SelectionChanged="CBBackground_SelectionChanged" Visibility="Visible"/>
+        <ComboBox Name="CBSubClass" HorizontalAlignment="left" Margin="130,155,0,0" VerticalAlignment="top" Width="120" SelectionChanged="CBSubClass_SelectionChanged" Visibility="Hidden"/>
+        <Label Name="LBLSubRace" Content="Subrace:" HorizontalAlignment="Left" Margin="50,85,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Name="LBLClass" Content="Class:" HorizontalAlignment="Left" Margin="50,120,0,0" VerticalAlignment="Top" Visibility="Visible"/>
+        <Label Name="LBLRace" Content="Race:" HorizontalAlignment="Left" Margin="50, 50, 0, 0" VerticalAlignment="Top"/>
+        <Label Name="LBLSTR" Content="Strength:" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top"/>
+        <Label Name="LBLDEX" Content="Dexterity:" HorizontalAlignment="Left" Margin="300,70,0,0" VerticalAlignment="Top"/>
+        <Label Name="LBLCON" Content="Constitution:" HorizontalAlignment="Left" Margin="300, 90, 0,0" VerticalAlignment="top"/>
+        <Label Name="LBLINT" Content="Intelligence:" HorizontalAlignment="Left" Margin="300,110,0,0" VerticalAlignment="top"/>
+        <Label Name="LBLWIS" Content="Wisdom:" HorizontalAlignment="Left" Margin="300,130,0,0" VerticalAlignment="top"/>
+        <Label Name="LBLCHA" Content="Charisma:" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="top"/>
+        <TextBlock Name="TBSTR" HorizontalAlignment="Left" Margin="380,55,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="TBDEX" HorizontalAlignment="Left" Margin="380,75,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="TBCON" HorizontalAlignment="Left" Margin="380,95,0,0" VerticalAlignment="top"/>
+        <TextBlock Name="TBINT" HorizontalAlignment="Left" Margin="380,115,0,0" VerticalAlignment="top"/>
+        <TextBlock Name="TBWIS" HorizontalAlignment="Left" Margin="380,135,0,0" VerticalAlignment="top"/>
+        <TextBlock Name="TBCHA" HorizontalAlignment="Left" Margin="380,155,0,0" VerticalAlignment="top"/>
+        <Label Name="LBLBackground" Content="Backgroud:" HorizontalAlignment="Left" Margin="50, 190, 0, 0" VerticalAlignment="Top" Visibility="Visible"/>
+        <Label Name="LBLSubClass" Content="Subclass" HorizontalAlignment="Left" Margin="50,155,0,0" VerticalAlignment="top" Visibility="Hidden"/>
+        <Label Name="LBLFeats" Content="Features:" HorizontalAlignment="Left" Margin="450,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="CBFeats" Width="120" HorizontalAlignment="Left" Margin="600,50,0,0" VerticalAlignment="Top" SelectionChanged="CBFeats_SelectionChanged" Visibility="Hidden"/>
+        <Label Name="LBLFeatExplained" Content="Feature Explanation:" HorizontalAlignment="Left" Margin="450,80,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="TBFeatExplanation" Width="250" Height="450" HorizontalAlignment="Left" VerticalAlignment="top" Margin="600,80,0,0" TextWrapping="Wrap"/>
+        <Button Name="BTNRun" Content="Generate Character" HorizontalAlignment="Left" Margin="92,273,0,0" VerticalAlignment="Top" Click="BTNRun_Click"/>
+
+        <StackPanel Name="SPProfs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="900,80,0,0" Width="150" Height="450">
+            <RadioButton Name="RBAcro" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Acrobatics"/>
+            <RadioButton Name="RBAnim" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Animal Handling"/>
+            <RadioButton Name="RBArca" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Arcana"/>
+            <RadioButton Name="RBAthl" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Athletics"/>
+            <RadioButton Name="RBDece" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Deception"/>
+            <RadioButton Name="RBHist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="History"/>
+            <RadioButton Name="RBInsi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Insight"/>
+            <RadioButton Name="RBInti" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Intimidation"/>
+            <RadioButton Name="RBInve" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Investigation"/>
+            <RadioButton Name="RBMedi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Medicine"/>
+            <RadioButton Name="RBNatu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Nature"/>
+            <RadioButton Name="RBPerc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Perception"/>
+            <RadioButton Name="RBPerf" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Performance"/>
+            <RadioButton Name="RBPers" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Persuasion"/>
+            <RadioButton Name="RBReli" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Religion"/>
+            <RadioButton Name="RBSlei" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Sleight of Hand"/>
+            <RadioButton Name="RBStea" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Stealth"/>
+            <RadioButton Name="RBSurv" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" Content="Survival"/>
+        </StackPanel>
     </Grid>
 </Window>

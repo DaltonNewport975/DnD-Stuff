@@ -16,14 +16,22 @@ namespace SpecialBoi
 
         public static void StartUp()
         {
+            //read the files in
             string[] feats = File.ReadAllLines("feats.txt");
             string[] races = File.ReadAllLines("races.txt");
             string[] classes = File.ReadAllLines("classes.txt");
             string[] backgrounds = File.ReadAllLines("backgrounds.txt");
 
+            //sort the arrays
+            Array.Sort(feats);
+            Array.Sort(races);
+            Array.Sort(classes);
+            Array.Sort(backgrounds);
+
             string tempKey;
             string tempEntry;
 
+            //convert the arrays into usable dictionaries
             foreach (string i in feats)
             {
                 tempKey = i.Substring(0, i.IndexOf("|"));

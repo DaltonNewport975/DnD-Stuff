@@ -26,5 +26,40 @@ namespace SpecialBoi
 
             BackgroundGenerators.StartUp();
         }
+
+        private void BTNRun_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CBBackground_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CBClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CBRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CBSubRace_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CBSubClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CBFeats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
